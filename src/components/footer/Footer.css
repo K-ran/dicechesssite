@@ -1,0 +1,40 @@
+.footer{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    color: white;
+    background-color: black;
+    width: 100%;
+    margin-top: 1em;
+}
+
+.copyright
+{
+    font-size: .8rem;
+    margin-top: 0;
+}
+
+.social_links
+{
+    padding: 1em;
+}
+.fa_link_footer
+{
+    color: white;
+    margin: .5em;
+}
+
+
+.contact_me
+{
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+@media (min-width:850px) {
+    .contact_me
+    {
+        font-size: 2rem;
+        text-transform: uppercase;
+    }
+}
