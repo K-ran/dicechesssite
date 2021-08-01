@@ -26,10 +26,49 @@
     width: 90%;
     margin-top: 1em;
     border: 1px solid var(--StrokeColor);
-    height: 2em;
     font-size: 1rem;
-    padding: 1.25rem;
+    padding: 0.5rem;
     font-weight: 500;
     color:  var(--textColor);
     letter-spacing: 0.05rem;
+}
+
+.dice_input_selection
+{
+    width: 90%;
+    margin-top: 1em;
+    border: 1px solid var(--StrokeColor);
+    font-size: 1rem;
+    padding: 0.5rem;
+    font-weight: 500;
+    color:  var(--textColor);
+    letter-spacing: 0.05rem;
+}
+
+
+.dice_input_button
+{
+    margin-top: auto;
+    margin-bottom: auto;
+    border: none;
+    background: black;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 1);
+    border-radius: 4px;
+    padding: .2em;
+    padding-left: auto;
+    padding-right: auto;
+    width: 10em;
+    height: 2em;
+    font-size: 1rem;
+}
+
+.dice_input_button:hover,:focus
+{
+    box-shadow: 0px 0px 4px rgb(97, 97, 97);
+}
+
+.dice_input_button:active
+{
+    box-shadow:none;
 }
