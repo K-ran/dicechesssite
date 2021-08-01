@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Navbar.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBars, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 class Navbar extends Component {
 
     constructor()
@@ -55,7 +55,7 @@ class Navbar extends Component {
             <div className="navbar">
                 <div className="navbar-title">
                     <div className="navbar-title-text">DICE CHESS DICE</div>
-                    <FontAwesomeIcon onClick={this.bar_toggle} className="navbar-title-icon" icon={this.state.barextended?faChevronUp:faBars} />
+                    {/* <FontAwesomeIcon onClick={this.bar_toggle} className="navbar-title-icon" icon={this.state.barextended?faChevronUp:faBars} /> */}
                 </div>
                
                 <ul className="navbar-menuItemList" style={{display: this.state.barextended?"flex":"none"}}>
