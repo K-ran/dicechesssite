@@ -1,0 +1,11 @@
+.create_box
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create_title
+{
+    font-weight: 500;
+}

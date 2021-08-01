@@ -59,7 +59,7 @@ class Navbar extends Component {
                 </div>
                
                 <ul className="navbar-menuItemList" style={{display: this.state.barextended?"flex":"none"}}>
-                    <li className="navbar-menuItem" ><a href="/aboutme">About</a></li>
+                    {/* <li className="navbar-menuItem" ><a href="/aboutme">About</a></li> */}
                 </ul>
             </div>
         );
