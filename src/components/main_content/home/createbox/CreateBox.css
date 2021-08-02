@@ -72,6 +72,11 @@
 {
     box-shadow:none;
 }
+.dice_input_button:disabled
+{
+    opacity: 0.1;
+    box-shadow:none;
+}
 
 .my_recaptcha
 {
