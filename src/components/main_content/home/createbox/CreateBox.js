@@ -13,7 +13,11 @@ export default class CreateBox extends Component {
             gameNameValid: false,
             playerNameValid: false,
             captchaValid: false,
-            buttonDisabled: true
+            buttonDisabled: true,
+            gameName:"",
+            playerName:"",
+            diceNum:"3",
+            captchaToken:""
         }
       }
 
@@ -29,14 +33,17 @@ export default class CreateBox extends Component {
     }
 
     joinHandler = ()=>{
-        fetch(CONSTANTS.rest_url+'/create/karanp/game1/3',
+        fetch(CONSTANTS.rest_url+'/create/'+this.state.playerName+'/'+this.state.gameName+'/'+this.state.diceNum,
         {
-            method: 'POST', // *GET, POST, PUT, DELETE, etc.
-            mode: 'no-cors', // no-cors, *cors, same-origin
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+              },
+              body: JSON.stringify({captchaToken:this.state.captchaToken})
         })
         .then(response => {
             console.log(response);
-            response.json()
+            return response.json()
         })
         .then(data => console.log(data));
 
@@ -47,6 +54,7 @@ export default class CreateBox extends Component {
             this.setState({captchaValid:false}, this.buttonEnableCheck)
         }else{
             this.setState({captchaValid:true}, this.buttonEnableCheck)
+            this.setState({captchaToken:data})
         }
     }
 
@@ -99,6 +107,7 @@ export default class CreateBox extends Component {
         let valid = false;
         if(errors.length === 0){
             valid=true;
+            this.setState({gameName:name})
         }
         this.setState({gameNameError:errors,
                        gameNameValid:valid}, this.buttonEnableCheck)
@@ -123,9 +132,14 @@ export default class CreateBox extends Component {
         let valid = false;
         if(errors.length === 0){
             valid=true;
+            this.setState({playerName:name})
         }
         this.setState({playerNameError:errors,
                       playerNameValid:valid}, this.buttonEnableCheck)
+    }
+
+    OnDiceChange = (event) =>{
+        this.setState({diceNum:event.target.value})
     }
 
     onGameNameChange = (event)=>{
@@ -154,7 +168,7 @@ export default class CreateBox extends Component {
                         {this.getErrorDivs(this.state.playerNameError)}
                     </div>
                     
-                    <select defaultValue="3" name="diceNum" className="dice_input_selection" >
+                    <select defaultValue="3" name="diceNum" className="dice_input_selection" onChange={this.OnDiceChange}>
                         <option value="1">Number of dice: 1</option>
                         <option value="2">Number of dice: 2</option>
                         <option value="3">Number of dice: 3</option>
