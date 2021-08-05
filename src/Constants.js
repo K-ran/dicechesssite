@@ -2,4 +2,16 @@ let CONSTANTS = {
     rest_url:"http://127.0.0.1:8081"
 }
 
-export default CONSTANTS
+const DICE_RESPONSE = {
+	RESPONSE_ERROR:0,
+	RESPONSE_GAME:1,
+	RESPONSE_CREATE:2,
+	RESPONSE_JOIN:3,
+	RESPONSE_GETSTATUS:4,
+	RESPONSE_ROLL:5
+}
+
+export {
+    CONSTANTS,
+    DICE_RESPONSE
+};

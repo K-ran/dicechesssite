@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import './CreateBox.css'
-import CONSTANTS from '../../../../Constants'
+import {CONSTANTS, DICE_RESPONSE} from '../../../../Constants'
 import Recaptcha from 'react-recaptcha';
+import { withRouter } from 'react-router-dom' 
 
-export default class CreateBox extends Component {
+class CreateBox extends Component {
 
     constructor(props) {
         super(props);
@@ -32,7 +33,9 @@ export default class CreateBox extends Component {
         return errorDivs
     }
 
+
     joinHandler = ()=>{
+        //send request to create api
         fetch(CONSTANTS.rest_url+'/create/'+this.state.playerName+'/'+this.state.gameName+'/'+this.state.diceNum,
         {
             method: 'POST',
@@ -45,7 +48,15 @@ export default class CreateBox extends Component {
             console.log(response);
             return response.json()
         })
-        .then(data => console.log(data));
+        .then(data => {
+            if (data.type === DICE_RESPONSE.RESPONSE_CREATE){
+                this.props.history.push('/waiting')
+            }
+            else{
+                //display error
+                console.log("TODO: display error");
+            }
+        });
 
     }
 
@@ -181,3 +192,5 @@ export default class CreateBox extends Component {
         )
     }
 }
+
+export default withRouter(CreateBox);
