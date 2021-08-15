@@ -14,7 +14,7 @@ class MainContent extends Component {
                         <Route path="/" component={Home} exact />
                         <Route path="/home" component={Home} exact />
                         <Route path="/game" component={Game} exact />
-                        <Route path="/waiting" component={Waiting} exact />       
+                        <Route path="/waiting/:gameId/:playerName" component={Waiting} exact />       
                         {/* <Route path="/about" component={Waiting} exact />        */}
                         {/* Add a error route */}
                     </Switch>

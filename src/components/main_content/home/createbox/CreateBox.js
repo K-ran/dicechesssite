@@ -45,12 +45,13 @@ class CreateBox extends Component {
               body: JSON.stringify({captchaToken:this.state.captchaToken})
         })
         .then(response => {
-            console.log(response);
             return response.json()
         })
         .then(data => {
             if (data.type === DICE_RESPONSE.RESPONSE_CREATE){
-                this.props.history.push('/waiting')
+                let gameId = data.gameId;
+                let playerName = data.playerName;
+                this.props.history.push('/waiting/'+gameId+"/"+playerName)
             }
             else{
                 //display error
