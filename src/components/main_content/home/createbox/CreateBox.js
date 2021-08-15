@@ -186,7 +186,7 @@ class CreateBox extends Component {
                         <option value="3">Number of dice: 3</option>
                     </select>
                     <Recaptcha size="compact" className="my_recaptcha" sitekey="6Lf5rtIbAAAAAKGITP79Oh5aC8pA5zM35cKTXWQd" verifyCallback={this.captchaHandler}/>
-                    <input disabled={this.state.buttonDisabled} type="button" value="Join" className="dice_input_button" onClick={this.joinHandler}/>
+                    <input disabled={this.state.buttonDisabled} type="button" value="Create" className="dice_input_button" onClick={this.joinHandler}/>
 
                 </form>
             </div>

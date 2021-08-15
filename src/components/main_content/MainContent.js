@@ -13,7 +13,7 @@ class MainContent extends Component {
                     <Switch>
                         <Route path="/" component={Home} exact />
                         <Route path="/home" component={Home} exact />
-                        <Route path="/game" component={Game} exact />
+                        <Route path="/game/:gameId/:playerName" component={Game} exact />
                         <Route path="/waiting/:gameId/:playerName" component={Waiting} exact />       
                         {/* <Route path="/about" component={Waiting} exact />        */}
                         {/* Add a error route */}
