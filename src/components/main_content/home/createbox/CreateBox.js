@@ -51,7 +51,8 @@ class CreateBox extends Component {
             if (data.type === DICE_RESPONSE.RESPONSE_CREATE){
                 let gameId = data.gameId;
                 let playerName = data.playerName;
-                this.props.history.push('/waiting/'+gameId+"/"+playerName)
+                let playerId = data.playerId;
+                this.props.history.push('/waiting/'+gameId+"/"+playerName+"/"+playerId)
             }
             else{
                 //display error
