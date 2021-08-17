@@ -1,0 +1,126 @@
+:root {
+    --dice-size: 5em;
+    --dice-size-half: 2.5em;
+    --dice-perspective: 30em;
+    --dice-margin: 4em;
+  }
+
+.scene {
+    width: var(--dice-size);
+    height:  var(--dice-size);
+    perspective: var(--dice-perspective);
+    margin: var(--dice-margin);
+}
+  
+.cube {
+width: 100%;
+height: 100%;
+position: relative;
+transform-style: preserve-3d;
+}
+
+
+.cube.rolling {
+    animation: rolling 8s infinite linear;
+}
+
+.cube.to-king {
+    animation: king 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.cube.to-queen {
+    animation: queen 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.cube.to-rook {
+    animation: rook 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.cube.to-pawn {
+    animation: pawn 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.cube.to-knight {
+    animation: knight 1s ease-out;
+    animation-fill-mode: forwards;
+}
+.cube.to-bishop {
+    animation: bishop 1s ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes rolling {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform: rotateX(  3600deg) rotateY(  7200deg); }
+}
+
+@keyframes king {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateX(  360deg) rotateY(  720deg); }
+}
+
+@keyframes queen {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateX(  360deg) rotateY(  630deg); }
+}
+
+@keyframes pawn {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateX(  360deg) rotateY(  900deg); }
+}
+
+@keyframes rook {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateX(  360deg) rotateY(  810deg); }
+}
+
+@keyframes bishop {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateZ(  -90deg)rotateX(  450deg) rotateY(  810deg); }
+}
+
+@keyframes knight {
+    0% { transform: rotateX(  0deg) rotateY(  0deg); }
+100% { transform:  rotateZ(  90deg) rotateX(  630deg) rotateY(  810deg); }
+}
+
+.cube__face {
+position: absolute;
+width: var(--dice-size);
+height: var(--dice-size);
+background-color: rgba(0,0,0,0.6);
+border: 1px solid black ;
+-webkit-backface-visibility: visible; /* Safari */
+backface-visibility: visible;
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+opacity: 0.95;
+}
+
+.cube__face--front {
+    background-image: url('king.svg');
+}
+
+.cube__face--right {
+    background-image: url('queen.svg');
+}
+.cube__face--back {
+    background-image: url('pawn.svg');
+}
+.cube__face--left {
+    background-image: url('rook.svg');
+}
+.cube__face--top {
+    background-image: url('knight.svg');
+}
+.cube__face--bottom {
+    background-image: url('bishop.svg');
+}
+
+.cube__face--front  { transform: rotateY(  0deg) translateZ(var(--dice-size-half)); }
+.cube__face--right  { transform: rotateY( 90deg) translateZ(var(--dice-size-half)); }
+.cube__face--back   { transform: rotateY(180deg) translateZ(var(--dice-size-half)); }
+.cube__face--left   { transform: rotateY(-90deg) translateZ(var(--dice-size-half)); }
+.cube__face--top    { transform: rotateX( 90deg) translateZ(var(--dice-size-half)); }
+.cube__face--bottom { transform: rotateX(-90deg) translateZ(var(--dice-size-half)); }

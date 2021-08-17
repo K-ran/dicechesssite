@@ -18,12 +18,11 @@ class Waiting extends Component {
             async () => {
                 const res = await fetch(CONSTANTS.rest_url+'/getstatus/'+this.state.gameId+'/'+this.state.playerId);
                 const data = await res.json();
+                
+                //Wait for other player to join
                 if(data.gameState === GAME_RESPONSE.RUNNING){
-                    console.log(data);
-                    let gameId = this.state.gameId;
-                    let playerName = this.state.playerName;
-                    let playerId = this.state.playerId;
-                    this.props.history.push('/game/'+gameId+"/"+playerName+"/"+playerId)
+                    data["playerId"] = this.state.playerId;
+                    this.props.history.push('/game/',data)
                 }
             },
             1000);
