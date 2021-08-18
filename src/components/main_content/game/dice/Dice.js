@@ -11,10 +11,17 @@ export default class Dice extends Component {
     }
 
     changeDiceMode = (newMode) => {
-        console.log(newMode)
         this.setState({
             spinClass:newMode
         })
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.face !== this.props.face){
+            this.setState({
+                spinClass:this.props.face
+            })
+        }
     }
 
     render() {

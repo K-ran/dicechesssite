@@ -46,10 +46,9 @@ class JoinBox extends Component {
         .then(data => {
             console.log(data);
             if (data.type === DICE_RESPONSE.RESPONSE_JOIN){
-                let gameId = data.gameId;
-                let playerName = data.playerName;
-                let playerId = data.playerId;
-                this.props.history.push('/game/'+gameId+"/"+playerName+"/"+playerId)
+                let gameData = data.gameState
+                gameData["playerId"] = data.playerId;
+                this.props.history.push('/game/',gameData)
             }
             else{
                 //display error
