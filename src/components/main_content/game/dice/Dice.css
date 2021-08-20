@@ -2,7 +2,7 @@
     --dice-size: 5em;
     --dice-size-half: 2.5em;
     --dice-perspective: 30em;
-    --dice-margin: 4em;
+    --dice-margin: 1em;
   }
 
 .scene {

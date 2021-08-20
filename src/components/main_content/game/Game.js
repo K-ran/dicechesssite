@@ -138,7 +138,7 @@ export default class Game extends Component {
                 <div className="dice_container">
                     {this.getDiceArray()}
                 </div>
-                <button className="dice_input_button" disabled={this.state.buttonDisabled} onClick={this.onRollClick}>ROLL!</button>
+                <button className="dice_roll_button" disabled={this.state.buttonDisabled} onClick={this.onRollClick}>ROLL!</button>
             </div>
         )
     }

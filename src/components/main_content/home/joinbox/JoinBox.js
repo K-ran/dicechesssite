@@ -7,16 +7,21 @@ import {CONSTANTS, DICE_RESPONSE} from '../../../../Constants'
 class JoinBox extends Component {
     constructor(props) {
         super(props);
+        let propGameId = props.gameId
+        let validGameId = (propGameId === "" || !propGameId?false:true)
+
+        console.log(props)
         this.state = {
             gameIdError: [""],
             playerNameError: [""],
-            gameIdValid: false,
+            gameIdValid: validGameId,
             playerNameValid: false,
             captchaValid: false,
             buttonDisabled: true,
-            gameId:"",
+            gameId:propGameId,
             playerName:"",
-            captchaToken:""
+            captchaToken:"",
+            gameIdDisabled:validGameId
         }
       }
 
@@ -170,7 +175,7 @@ class JoinBox extends Component {
                         {this.getErrorDivs(this.state.playerNameError)}
                     </div>
                     <div className="dice_input_wrapper">
-                        <input type="text" name="gameId" placeholder="Game id" onChange={this.onGameIdChange} className="dice_input" />
+                        <input disabled={this.state.gameIdDisabled} type="text" value={this.state.gameId} name="gameId" placeholder="Game id" onChange={this.onGameIdChange} className="dice_input" />
                         {this.getErrorDivs(this.state.gameIdError)}
                     </div>
                     {/* <Recaptcha size="compact" className="my_recaptcha" sitekey="6Lf5rtIbAAAAAKGITP79Oh5aC8pA5zM35cKTXWQd" verifyCallback={this.captchaHandler}/> */}

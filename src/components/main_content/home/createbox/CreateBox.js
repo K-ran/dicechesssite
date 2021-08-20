@@ -9,13 +9,11 @@ class CreateBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameNameError: [""],
             playerNameError: [""],
-            gameNameValid: false,
             playerNameValid: false,
             captchaValid: false,
             buttonDisabled: true,
-            gameName:"",
+            gameName:"game", //TODO: See this is required in future. or just remove it 
             playerName:"",
             diceNum:"3",
             captchaToken:""
@@ -72,8 +70,7 @@ class CreateBox extends Component {
     }
 
     buttonEnableCheck = () => {
-        if (this.state.gameNameValid && 
-            this.state.playerNameValid && 
+        if (this.state.playerNameValid && 
             this.state.captchaValid)
         {
             this.setState({buttonDisabled:false})
@@ -103,30 +100,6 @@ class CreateBox extends Component {
         }
     }
 
-    verifyGameName = (name) =>{
-        let errors = []
-        if (name === ""){
-            errors.push("* Cannot be empty")
-        } else{
-            if(!this.isAlphaNum(name)){
-                errors.push("* Only alph-numeric allowed")
-            }
-    
-            if(name.length > 128){
-                errors.push("* Length should be less than 128 characters")
-            }
-        }
-
-        let valid = false;
-        if(errors.length === 0){
-            valid=true;
-            this.setState({gameName:name})
-        }
-        this.setState({gameNameError:errors,
-                       gameNameValid:valid}, this.buttonEnableCheck)
-    }
-
-
     verifyPlayerName = (name) =>{
         let errors = []
         if (name === ""){
@@ -155,11 +128,6 @@ class CreateBox extends Component {
         this.setState({diceNum:event.target.value})
     }
 
-    onGameNameChange = (event)=>{
-        let name = event.target.value
-        this.verifyGameName(name)
-    }
-
     onPlayerNameChange = (event)=>{
         let name = event.target.value
         this.verifyPlayerName(name)
@@ -172,10 +140,6 @@ class CreateBox extends Component {
                     Create Session
                 </div>
                 <form className="dice_input_form">
-                    <div className="dice_input_wrapper">
-                        <input type="text" name="gameName" placeholder="Name of the Game" onChange= {this.onGameNameChange}className="dice_input" />
-                        {this.getErrorDivs(this.state.gameNameError)}
-                    </div>
                     <div className="dice_input_wrapper">
                         <input type="text" name="playerName" placeholder="Your Name" onChange={this.onPlayerNameChange} className="dice_input" />
                         {this.getErrorDivs(this.state.playerNameError)}

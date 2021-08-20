@@ -1,0 +1,52 @@
+.game_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.game_heading{
+    width: 100%;
+    text-align: center;
+}
+
+.dice_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 50vh;
+    justify-content: center;
+}
+
+.dice_roll_button{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 50%;
+    border: none;
+    background: black;
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 1);
+    padding: .2em;
+    font-size: 1.5rem;
+}
+
+.dice_roll_button:hover,:focus
+{
+    box-shadow: 0px 0px 10px rgb(97, 97, 97);
+}
+
+.dice_roll_button:active
+{
+    box-shadow:none;
+}
+.dice_roll_button:disabled
+{
+    /* opacity: 0.1; */
+    box-shadow:none;
+}
+
+.game_heading{
+    font-size: 1.5rem;
+    padding: 1em
+}
