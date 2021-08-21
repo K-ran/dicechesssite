@@ -57,9 +57,11 @@ class JoinBox extends Component {
             }
             else{
                 //display error
-                console.log("TODO: display error");
+                alert("Game room is full. Create a new game.");
             }
-        });
+        }).catch(()=>{
+            alert("Something went wrong. Server not reachable.");
+        })
 
     }
 
@@ -161,7 +163,7 @@ class JoinBox extends Component {
     }
     render() {
         return (
-            <div className="create_box box">
+            <div className="create_box join_box box">
                 <div className="create_title">
                     Join Session
                 </div>
@@ -179,7 +181,7 @@ class JoinBox extends Component {
                         {this.getErrorDivs(this.state.gameIdError)}
                     </div>
                     {/* <Recaptcha size="compact" className="my_recaptcha" sitekey="6Lf5rtIbAAAAAKGITP79Oh5aC8pA5zM35cKTXWQd" verifyCallback={this.captchaHandler}/> */}
-                    <input disabled={this.state.buttonDisabled} type="button" value="Join" className="dice_input_button" onClick={this.joinHandler}/>
+                    <input disabled={this.state.buttonDisabled} type="button" value="Join" className="dice_input_button join_input_button" onClick={this.joinHandler}/>
 
                 </form>
             </div>

@@ -19,6 +19,12 @@
     justify-content: center;
 }
 
+@media only screen and (min-width: 960px) {
+    .dice_container{
+        flex-direction: row;
+    }
+}
+
 .dice_roll_button{
     margin-top: auto;
     margin-bottom: auto;

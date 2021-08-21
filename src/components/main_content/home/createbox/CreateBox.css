@@ -81,7 +81,7 @@
 
 .my_recaptcha
 {
-    margin-top:1em;
+    margin-top:auto;
     width: 10em;
 }
 
@@ -101,5 +101,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    height: 100%;
     margin: 1em;
 }

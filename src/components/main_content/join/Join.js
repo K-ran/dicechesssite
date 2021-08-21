@@ -1,6 +1,7 @@
-import React, { Component } from 'react'
-import JoinBox from '../home/joinbox/JoinBox'
-import { withRouter } from 'react-router-dom' 
+import React, { Component } from 'react';
+import JoinBox from '../home/joinbox/JoinBox';
+import { withRouter } from 'react-router-dom';
+import './Join.css';
 
 class Join extends Component {
     constructor(props) {

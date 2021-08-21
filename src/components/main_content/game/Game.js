@@ -58,6 +58,7 @@ export default class Game extends Component {
     onRollClick = () => {
         this.continousUpdate = false //stop the automatic update
         let newDiceState  = []
+        let oldDiceState  = this.state.face
         for (let index = 0; index < this.state.diceNumber; index++) {
             newDiceState.push("rolling")
         }
@@ -75,7 +76,7 @@ export default class Game extends Component {
                 return response.json()
             }).then(data =>{
                 console.log(data)
-                if(data.type === DICE_RESPONSE.RESPONSE_ROLL){
+                if(data.type === DICE_RESPONSE.RESPONSE_ROLL){  
                     this.rollcounter = data.rollCount
                     let newDiceState  = []
                     data.dice.forEach(element => {
@@ -90,8 +91,19 @@ export default class Game extends Component {
                 }
                 else{
                     this.continousUpdate = true
+                    this.setState({
+                        face:oldDiceState,
+                        buttonDisabled:false,
+                    })
                 }
 
+            }).catch(()=>{
+                this.continousUpdate = true
+                this.setState({
+                    face:oldDiceState,
+                    buttonDisabled:false,
+                })
+                alert("Something went wrong. Unable to reach the server");
             })
         })
     }

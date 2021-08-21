@@ -3,7 +3,15 @@
     --dice-size-half: 2.5em;
     --dice-perspective: 30em;
     --dice-margin: 1em;
-  }
+}
+@media only screen and (min-width: 960px) {
+    :root {
+        --dice-size: 8em;
+        --dice-size-half: 4em;
+        --dice-perspective: 30em;
+        --dice-margin: 5em;
+    }
+}
 
 .scene {
     width: var(--dice-size);
@@ -88,8 +96,8 @@ transform-style: preserve-3d;
 position: absolute;
 width: var(--dice-size);
 height: var(--dice-size);
-background-color: rgba(0,0,0,0.6);
-border: 1px solid black ;
+background-color: rgba(71, 71, 71, 0.8);
+border: 2px solid black ;
 -webkit-backface-visibility: visible; /* Safari */
 backface-visibility: visible;
 background-repeat: no-repeat;

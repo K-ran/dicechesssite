@@ -1,0 +1,11 @@
+@media only screen and (min-width: 960px) {
+    .join_input_button{
+        margin-top: 1.5em;
+    }
+    .join_container>.join_box {
+        height: auto;
+    }
+    .join_container>.box {
+        min-height: auto;
+    }
+}

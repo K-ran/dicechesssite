@@ -53,10 +53,11 @@ class CreateBox extends Component {
                 this.props.history.push('/waiting/'+gameId+"/"+playerName+"/"+playerId)
             }
             else{
-                //display error
-                console.log("TODO: display error");
+                alert("Something went wrong. Invalid response from Serer.");
             }
-        });
+        }).catch(()=>{
+            alert("Something went wrong. Server not reachable.");
+        })
 
     }
 

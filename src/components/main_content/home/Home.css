@@ -6,14 +6,30 @@
     width: 100%;
     height: 100%;
 }
+@media only screen and (min-width: 960px) {
+    .home{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: center;
+        padding-top: 4em;
+    }
+}
 
 .box
 {
     background-color: var(--BgColor);
-    min-width: 80vw;
+    width: 80vw;
     margin: 1em;
     padding: 1em;
     min-height: 50vh;
     border: 1px solid var(--StrokeColor);
     border-radius: 13px;
+}
+
+
+@media only screen and (min-width: 960px) {
+    .box{
+        width: 20vw;
+        height: 60vh;
+    }
 }
