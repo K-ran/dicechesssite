@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './CreateBox.css'
 import {CONSTANTS, DICE_RESPONSE} from '../../../../Constants'
-import Recaptcha from 'react-recaptcha';
+import ReCAPTCHA from "react-google-recaptcha";
 import { withRouter } from 'react-router-dom' 
 
 class CreateBox extends Component {
@@ -61,13 +61,19 @@ class CreateBox extends Component {
 
     }
 
-    captchaHandler = (data) => {
+    captchaSuccessHandler = (data) => {
+        console.log(data);
         if (data.length === 0){
             this.setState({captchaValid:false}, this.buttonEnableCheck)
         }else{
             this.setState({captchaValid:true}, this.buttonEnableCheck)
             this.setState({captchaToken:data})
         }
+    }
+
+    captchaErrorHandler = (data) => {
+        console.log("captcha error");
+        console.log(data);
     }
 
     buttonEnableCheck = () => {
@@ -151,7 +157,7 @@ class CreateBox extends Component {
                         <option value="2">Number of dice: 2</option>
                         <option value="3">Number of dice: 3</option>
                     </select>
-                    <Recaptcha size="compact" className="my_recaptcha" sitekey="6Lf5rtIbAAAAAKGITP79Oh5aC8pA5zM35cKTXWQd" verifyCallback={this.captchaHandler}/>
+                    <ReCAPTCHA size="compact" className="my_recaptcha" sitekey="6Lf5rtIbAAAAAKGITP79Oh5aC8pA5zM35cKTXWQd" onError={this.captchaErrorHandler} onChange={this.captchaSuccessHandler}/>
                     <input disabled={this.state.buttonDisabled} type="button" value="Create" className="dice_input_button" onClick={this.joinHandler}/>
 
                 </form>
