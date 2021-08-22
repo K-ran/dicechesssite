@@ -1,5 +1,5 @@
 let CONSTANTS = {
-    rest_url:"http://127.0.0.1:8081"
+    rest_url:"/api/v1"
 }
 
 const DICE_RESPONSE = {
