@@ -81,10 +81,16 @@
 
 .my_recaptcha
 {
-    margin-top:auto;
+    margin-top:1.5em;
     width: 10em;
 }
 
+@media only screen and (min-width: 960px) {
+    .my_recaptcha
+    {
+        margin-top: auto;
+    }
+}
 .dice_input_wrapper
 {    
     width: 100%;
