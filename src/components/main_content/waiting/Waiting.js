@@ -34,7 +34,7 @@ class Waiting extends Component {
     render() {
         return (
             <div className="waiting_text_container">
-                <div className="waiting_text">Hi {this.state.playerName}, please ask your opponent to join the dice chess session using the game id: <strong>{this.state.gameId}</strong> 
+                <div className="waiting_text">Hi {this.state.playerName}, please ask your opponent to join the dice chess session using the game id: <strong>{this.state.gameId}</strong>  
                 or share <a href={"/join/"+this.state.gameId} target="_blank" rel="noopener noreferrer">this link.</a>
                 </div>
             </div>
